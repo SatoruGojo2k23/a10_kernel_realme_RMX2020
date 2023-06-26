@@ -7,8 +7,8 @@ source ~/.bashrc && source ~/.profile
 export LC_ALL=C && export USE_CCACHE=1
 ccache -M 100G
 export ARCH=arm64
-export KBUILD_BUILD_HOST=neolit
-export KBUILD_BUILD_USER="sarthakroy2002"
+export KBUILD_BUILD_HOST=perf+
+export KBUILD_BUILD_USER="rintokhan"
 git clone --depth=1 https://github.com/sarthakroy2002/android_prebuilts_clang_host_linux-x86_clang-7612306 clang
 git clone --depth=1 https://github.com/sarthakroy2002/prebuilts_gcc_linux-x86_aarch64_aarch64-linaro-7 los-4.9-64
 git clone --depth=1 https://github.com/sarthakroy2002/linaro_arm-linux-gnueabihf-7.5 los-4.9-32
@@ -32,10 +32,8 @@ function zupload()
 git clone --depth=1 https://github.com/sarthakroy2002/AnyKernel3.git AnyKernel
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 cd AnyKernel
-zip -r9 Test-OSS-KERNEL-RMX2020-NEOLIT.zip *
-#curl --upload-file Test-OSS-KERNEL-RMX2020-NEOLIT.zip https://transfer.sh/
-curl -sL https://git.io/file-transfer | sh
-./transfer wet Test-OSS-KERNEL-RMX2020-NEOLIT.zip
+zip -r9 Test-KERNEL-RMX2020-Perf+.zip *
+curl -T Test-KERNEL-RMX2020-Perf+.zip temp.sh
 }
 
 compile
